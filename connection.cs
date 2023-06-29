@@ -13,15 +13,21 @@ class Program
         {
             try
             {
-                // Open the connection
-                connection.Open();
-                Console.WriteLine("Connection opened successfully.");
+                // open connection 
+                    conn.Open();
+                    string Query = "INSERT INTO emp(Phone,Email,place,Department,Company) VALUES(@phone,@email,@place,@depart,@Company)";// this queery 
+                    using (SqlCommand cmd = new SqlCommand(Query, conn))
+                    {
+                        //link @ with variables  
+                        cmd.Parameters.AddWithValue("@phone", e1.Emp_phone);
+                        cmd.Parameters.AddWithValue("@email", e1.Emp_mail);
+                        cmd.Parameters.AddWithValue("@place", e1.Emp_location);
+                        cmd.Parameters.AddWithValue("@depart", e1.Emp_Department);
+                        cmd.Parameters.AddWithValue("@Company", comp);
 
-                // Perform database operations here
 
-                // Close the connection
-                connection.Close();
-                Console.WriteLine("Connection closed.");
+                        cmd.ExecuteNonQuery();
+                    }
             }
             catch (Exception ex)
             {
