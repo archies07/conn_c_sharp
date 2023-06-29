@@ -25,7 +25,7 @@ class Program
                         cmd.Parameters.AddWithValue("@depart", e1.Emp_Department);
                         cmd.Parameters.AddWithValue("@Company", comp);
 
-
+                        //Execute querry
                         cmd.ExecuteNonQuery();
                     }
             }
