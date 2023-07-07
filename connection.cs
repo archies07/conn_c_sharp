@@ -27,6 +27,8 @@ class Program
 
                         //Execute querry
                         cmd.ExecuteNonQuery();
+                        MessageBox.Show("Successhul");
+                    
                     }
             }
             catch (Exception ex)
